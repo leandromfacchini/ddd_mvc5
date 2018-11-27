@@ -33,7 +33,8 @@ namespace ProjetoModeloDDD.MVC.Controllers
         public ActionResult Details(int id)
         {
             var cliente = _clienteApp.GetById(id);
-            return View(cliente);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
+            return View(clienteViewModel);
         }
 
         // GET: Clientes/Create
@@ -95,11 +96,12 @@ namespace ProjetoModeloDDD.MVC.Controllers
         }
 
         // POST: Clientes/Delete/5
-        [HttpPost]
-        public ActionResult Delete(ClienteViewModel cliente)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            var clienteViewModel = Mapper.Map<ClienteViewModel, Cliente>(cliente);
-            _clienteApp.Remove(clienteViewModel);
+            var cliente = _clienteApp.GetById(id);
+            _clienteApp.Remove(cliente);
 
             return RedirectToAction("Index");
         }

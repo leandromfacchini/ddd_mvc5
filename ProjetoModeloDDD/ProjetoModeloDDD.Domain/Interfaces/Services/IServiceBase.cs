@@ -2,7 +2,7 @@
 
 namespace ProjetoModeloDDD.Domain.Interfaces.Services
 {
-    public interface IProdutoService<TEntity> where TEntity : class
+    public interface IServiceBase<TEntity> where TEntity : class
     {
         void Add(TEntity entity);
         TEntity GetById(int id);

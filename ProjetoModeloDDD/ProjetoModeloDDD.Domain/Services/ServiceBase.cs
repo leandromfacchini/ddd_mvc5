@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ProjetoModeloDDD.Domain.Services
 {
-    public class ServiceBase<TEntity> : IDisposable, IProdutoService<TEntity> where TEntity : class
+    public class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : class
     {
         private readonly IRepositoryBase<TEntity> _repository;
 
