@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoModeloDDD.Domain.Interfaces.Services
 {
-    public interface IClienteService : IServiceBase<Cliente>
+    public interface IClienteService : IProdutoService<Cliente>
     {
         IEnumerable<Cliente> ObterClientesEspeciais(IEnumerable<Cliente> clientes);
     }
